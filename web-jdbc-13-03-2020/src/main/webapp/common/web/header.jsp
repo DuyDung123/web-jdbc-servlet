@@ -1,48 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<div class="container">
-		<a class="navbar-brand" href="/web-jdbc-13-03-2020/trang-chu"><i
-			class="fa fa-home" aria-hidden="true"></i> Tin Tức Thái Nguyên</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto float-left">
-				<li class="float-left nav-item active">
-					<div class="input-group mx-auto mt-1" style="width: 150%">
-						<input type="text" class="form-control" placeholder="tìm kiếm"
-							id="mail" name="email">
-						<div class="input-group-append">
-							<span class="input-group-text"><i class="fa fa-search"
-								aria-hidden="true"></i></span>
+<nav class="tab-bar navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href='<c:url value="/trang-chu"/>'>VIETSOZ</a>
+	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+		aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavId">
+		<ul class="navbar-nav mr-auto mt-2 mx-auto mt-lg-0 fontweb">
+			<c:forEach var="item" items="${categories}">
+				<li class="nav-item">
+					<a class="nav-link" href='<c:url value="/category?category=${item.code}"/>'>${item.name}</a>
+				</li>
+			</c:forEach>
+			<li>
+				<form class="frm_search">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search" name="search"
+							style="width: 100px;">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit"><i class="fa fa-search"
+									aria-hidden="true"></i></button>
 						</div>
 					</div>
-				</li>
-				<c:if test="${not empty USERMODEL}">
-					<li class="nav-item"><a class="nav-link font_size" href='#'>Wellcome:
-							${USERMODEL.fullName}</a></li>
-					<li class="nav-item"><a class="nav-link font_size"
-						href='<c:url value="/thoat?action=logout"/>'>Thoát</a></li>
-				</c:if>
-				<c:if test="${empty USERMODEL}">
-					<li class="nav-item"><a class="nav-link font_size"
-						href='<c:url value="/dang-ky?action=register"/>'>Đăng ký</a></li>
-					<li class="nav-item"><a class="nav-link font_size"
-						href='<c:url value="/dang-nhap?action=login"/>'>Đăng nhập</a></li>
-				</c:if>
-			</ul>
-		</div>
+				</form>
+			</li>
+			<c:if test="${not empty USERMODEL}">
+				<li class="nav-item"><a class="nav-link" href='#'>
+						${USERMODEL.fullName}</a></li>
+				<li class="nav-item"><a class="nav-link" href='<c:url value="/thoat?action=logout"/>'>LogOut</a></li>
+			</c:if>
+			<c:if test="${empty USERMODEL}">
+				<li class="nav-item"><a class="nav-link" href='<c:url value="/dang-ky?action=register"/>'>LogUp</a></li>
+				<li class="nav-item"><a class="nav-link" href='<c:url value="/dang-nhap?action=login"/>'>LogIn</a></li>
+			</c:if>
+		</ul>
 	</div>
 </nav>
-<div class="menutop">
-	<ul class="menuhorizontal">
-		<c:forEach var="item" items="${categories}">
-			<li><a href='<c:url value="/category?category=${item.code}"/>'
-				class="">${item.name}</a></li>
-		</c:forEach>
-	</ul>
-</div>

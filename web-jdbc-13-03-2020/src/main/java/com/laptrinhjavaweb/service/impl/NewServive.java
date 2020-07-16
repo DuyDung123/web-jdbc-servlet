@@ -61,6 +61,11 @@ public class NewServive implements INewService{
 	public List<NewModel> findAll(Pageble pageble) {
 		return newDao.finldAll(pageble);
 	}
+	
+	@Override
+	public List<NewModel> finldAll() {
+		return newDao.finldAll();
+	}
 
 	@Override
 	public int getTotalItem() {

@@ -26,16 +26,19 @@ public class CategoryController extends HttpServlet {
 
 	@Inject
 	private NewServive newService;
+	
 	@Inject
 	private NewModel newModel;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String category = req.getParameter("category");
-		CategoryModel categoryModel = categoryService.findOneByCode(category);
-		newModel.setListResult(newService.findByCategoryId(categoryModel.getId()));
+//		CategoryModel categoryModel = categoryService.findOneByCode(category);
+		newModel.setListResult(newService.finldAll());
+		req.setAttribute("categoryTabBar", category);
+		req.setAttribute("categories", categoryService.findAll());
 		req.setAttribute(SystemConstant.MODEL, newModel);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("views/web/edit.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("views/web/category.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

@@ -1,17 +1,67 @@
-body {
-  padding-top: 54px;
+/* manin-content */
+.main-content-right{
+    margin-top: 10px;
+    margin-bottom: 75px;
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
+img.img_m_bn {
+    width: 100%;
 }
 
-.portfolio-item {
-  margin-bottom: 30px;
+p.con_m_bn {
+    font-size: 15px;
+    font-style: unset;
+    text-align: justify;
 }
 
-.pagination {
-  margin-bottom: 30px;
+.title_m_bn {
+    font-weight: bold;
+    font-size: 22px;
+    margin: 10px 0 10px 0;
 }
+
+.title-event{
+    margin-bottom: 30px;
+}
+
+.title-event hr{
+    background: red;
+    margin-top: -16px;
+}
+
+.text_event {
+    background: red;
+    width: 87px;
+    height: 35px;
+    font-weight: bold;
+    color: white;
+    line-height: 35px;
+    text-align: center;
+}
+
+.title_m_evn {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p.con_m_evn {
+    font-size: 15px;
+    text-align: justify;
+}
+
+img.img_m_evn {
+    float: left;
+    width: 46%;
+    margin-right: 22px;
+}
+
+.most-read{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 40px 0 0 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid red;
+    margin-bottom: 30px;
+}
+/* end main-content */

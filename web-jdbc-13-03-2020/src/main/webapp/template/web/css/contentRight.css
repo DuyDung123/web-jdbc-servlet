@@ -1,0 +1,25 @@
+/* contentRight */
+.content-right{
+    border-left: 0.5px solid rgb(199, 218, 247);
+}
+
+.img-slide-right{
+    height: 200px;
+}
+
+.content-body-right {
+    margin-bottom: 65px;
+}
+
+.img_r_b{
+    width: 130px;
+    padding-right: 5%;
+    float: left;
+}
+
+.title_c_r{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* end css contentRight */
