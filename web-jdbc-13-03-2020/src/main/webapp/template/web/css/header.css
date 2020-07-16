@@ -1,0 +1,53 @@
+.font_size{
+    font-size: 20px;
+}
+
+input#mail {
+    height: 25px;
+}
+
+.input-group-append{
+    height: 25px;
+}
+
+.input-group.mx-auto.mt-1 {
+    left: -130%;
+    top: 5%;
+}
+
+ul.menuhorizontal li { 
+    display: inline;
+}
+
+.menutop {
+    background-color: #2FA1B3;
+    height: 40px;
+}
+
+ul.menuhorizontal {
+    list-style: none;
+    width: 900px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.menuhorizontal li a {
+    color: white;
+    /* margin: 10px; */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 10px;
+    transition: 0,5;
+}
+
+ul.menuhorizontal {
+    line-height: 40px;
+}
+
+.menutop {
+    position: fixed;
+    z-index: 10;
+    width: -webkit-fill-available;
+}

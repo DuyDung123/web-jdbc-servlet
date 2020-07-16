@@ -17,4 +17,19 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO{
 		return users.isEmpty() ? null : users.get(0);
 	}
 
+	@Override
+	public Long save(UserModel userModel) {
+		StringBuilder sql = new StringBuilder("insert into user(username,password,fullname,status, roleid)");
+		sql.append(" values(?, ?, ?, ?, ?)");
+		return insert(sql.toString(), userModel.getUserName(), userModel.getPassword(), userModel.getFullName(),
+				userModel.getStatus(), userModel.getRoleId());
+	}
+
+	@Override
+	public UserModel findOne(Long id) {
+		String sql="select * from user where id = ?";
+		List<UserModel> news = query(sql, new UserMapper(), id);
+		return news.isEmpty() ? null : news.get(0);
+	}
+
 }
