@@ -20,7 +20,7 @@ import com.laptrinhjavaweb.utils.SessionUtil;
 
 //import com.laptrinhjavaweb.model.UserModel;
 
-@WebServlet(urlPatterns  = {"/trang-chu","/dang-nhap","/thoat"})
+@WebServlet(urlPatterns  = {"/trang-chu","/dang-nhap","/dang-ky","/thoat"})
 public class HomeController extends HttpServlet{
 	
 	@Inject
@@ -50,6 +50,9 @@ public class HomeController extends HttpServlet{
 		}else if(action != null && action.equals("logout")) {
 			SessionUtil.getInstance().removeValue(request, "USERMODEL");
 			response.sendRedirect(request.getContextPath()+"/trang-chu");
+		}else if(action != null && action.equals("register")) {
+			RequestDispatcher rd = request.getRequestDispatcher("/views/register.jsp");
+			rd.forward(request, response);
 		} else {
 			request.setAttribute("categories", categoryService.findAll());
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
@@ -72,6 +75,15 @@ public class HomeController extends HttpServlet{
 				}
 			}else {
 				response.sendRedirect(request.getContextPath()+("/dang-nhap?action=login&message=username_password_invalid&alert=danger"));
+			}
+		} else if(action != null && action.equals("register")) {
+			UserModel model = FormUtil.toModel(UserModel.class, request);
+			model = userService.save(model);
+			SessionUtil.getInstance().putValue(request, "USERMODEL", model);
+			if(model.getId() != null) {
+				response.sendRedirect(request.getContextPath()+("/trang-chu"));
+			}else {
+				response.sendRedirect(request.getContextPath()+("/dang-ky?action=register&&message=error"));
 			}
 		}
 	}

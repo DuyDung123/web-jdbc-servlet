@@ -16,8 +16,8 @@ public class NewServive implements INewService{
 	
 	@Inject
 	private INewDAO newDao;
-	@Inject
 	
+	@Inject
 	private ICategoryDAO categoryDao;
 
 	@Override

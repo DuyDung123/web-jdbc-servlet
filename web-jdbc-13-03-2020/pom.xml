@@ -86,7 +86,7 @@
 			<version>1.9.3</version>
 		</dependency>
 		
-		<!-- thu vien autoparseString -->
+		<!-- thu vien auto parse String -->
 	</dependencies>
 
 	<build>

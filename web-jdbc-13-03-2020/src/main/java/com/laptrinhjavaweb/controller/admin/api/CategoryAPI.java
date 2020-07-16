@@ -48,4 +48,22 @@ public class CategoryAPI extends HttpServlet {
 		mapper.writeValue(resp.getOutputStream(), updateCategory);
 	}
 	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("application/json");
+		req.getInputStream();
+//		CategoryModel selectCategory = httpUtil.of(req.getReader()).toModel(CategoryModel.class);
+//		Pageble pageble = new PageRequest(selectCategory.getPage(), selectCategory.getMaxPageItem(),
+//				new Sorter(selectCategory.getSortName(), selectCategory.getSortBy()));
+//		selectCategory.setListResult(categoryService.findAllAndSort(pageble));
+//		selectCategory.setTotalItem(categoryService.getTotalItem());
+//		selectCategory.setTotalPage((int) Math.ceil((double) selectCategory.getTotalItem() / selectCategory.getMaxPageItem()));
+//		mapper.writeValue(resp.getOutputStream(), selectCategory);
+		CategoryModel selectCategory = new CategoryModel();
+		selectCategory.setListResult(categoryService.findAll());
+		mapper.writeValue(resp.getOutputStream(), selectCategory.getListResult());
+	}
+	
 }
