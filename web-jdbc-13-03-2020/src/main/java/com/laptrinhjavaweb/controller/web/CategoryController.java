@@ -15,6 +15,7 @@ import com.laptrinhjavaweb.model.CategoryModel;
 import com.laptrinhjavaweb.model.NewModel;
 import com.laptrinhjavaweb.service.ICategoryService;
 import com.laptrinhjavaweb.service.impl.NewServive;
+import com.laptrinhjavaweb.utils.FormUtil;
 
 @WebServlet(urlPatterns = { "/category" })
 public class CategoryController extends HttpServlet {
@@ -26,19 +27,30 @@ public class CategoryController extends HttpServlet {
 
 	@Inject
 	private NewServive newService;
-	
-	@Inject
-	private NewModel newModel;
+
+//	@Inject
+//	private NewModel newModel;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String category = req.getParameter("category");
-		CategoryModel categoryModel = categoryService.findOneByCode(category);
-		newModel.setListResult(newService.finldAll());
-		req.setAttribute("categoryTabBar", categoryModel);
-		req.setAttribute("categories", categoryService.findAll());
-		req.setAttribute(SystemConstant.MODEL, newModel);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("views/web/category.jsp");
-		dispatcher.forward(req, resp);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		NewModel newModel = FormUtil.toModel(NewModel.class, request);
+		String category = request.getParameter("category");
+		String view = "";
+		if (category != null) {
+			CategoryModel categoryModel = categoryService.findOneByCode(category);
+			newModel.setListResult(newService.findByCategoryId(categoryModel.getId()));
+			request.setAttribute("categoryTabBar", categoryModel);
+			view = "views/web/category.jsp";
+		} else {
+			if (newModel.getId() != null) {
+				newModel = newService.findOne(newModel.getId());
+				request.setAttribute("categoryTabBar", categoryService.findOne(newModel.getCategoryId()));
+				view = "/views/web/new-detail.jsp";
+			}
+		}
+		request.setAttribute("categories", categoryService.findAll());
+		request.setAttribute(SystemConstant.MODEL, newModel);
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 }
