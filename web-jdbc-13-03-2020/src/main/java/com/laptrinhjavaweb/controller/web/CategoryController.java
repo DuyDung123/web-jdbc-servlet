@@ -33,9 +33,9 @@ public class CategoryController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String category = req.getParameter("category");
-//		CategoryModel categoryModel = categoryService.findOneByCode(category);
+		CategoryModel categoryModel = categoryService.findOneByCode(category);
 		newModel.setListResult(newService.finldAll());
-		req.setAttribute("categoryTabBar", category);
+		req.setAttribute("categoryTabBar", categoryModel);
 		req.setAttribute("categories", categoryService.findAll());
 		req.setAttribute(SystemConstant.MODEL, newModel);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("views/web/category.jsp");
