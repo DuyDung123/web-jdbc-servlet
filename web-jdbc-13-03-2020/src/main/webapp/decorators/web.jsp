@@ -36,7 +36,13 @@
     <c:if test="${ not empty categoryTabBar}">
         <div class="nav_bar jumbotron-fluid">
             <div class="container">
-                <span class="home">Trang chủ</span><i class="fa fa-angle-right" aria-hidden="true"></i><span>${categoryTabBar.name}</span>
+                <span class="home">
+                    <a style="text-decoration: none; color: black;" href="<c:url value='/trang-chu'/>">Trang chủ</a>
+                </span>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span>
+                    <a style="text-decoration: none; color: black;" href="<c:url value='/category?category=${categoryTabBar.code}'/>">${categoryTabBar.name}</a>
+                </span>
             </div>
         </div>
     </c:if>

@@ -15,4 +15,5 @@ public interface INewService {
 	List<NewModel> finldAll();
 	int getTotalItem();
 	NewModel findOne(long id);
+	NewModel findOneAndUpdateView(long id);
 }

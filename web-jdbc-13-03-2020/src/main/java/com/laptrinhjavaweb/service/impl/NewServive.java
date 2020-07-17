@@ -40,6 +40,7 @@ public class NewServive implements INewService{
 		NewModel olNew = newDao.findOne(updateNew.getId());
 		updateNew.setCreatedDate(olNew.getCreatedDate());
 		updateNew.setCreatedBy(olNew.getCreatedBy());
+		updateNew.setView(olNew.getView());
 		updateNew.setModifiedDate(new Timestamp(System.currentTimeMillis()));
 		CategoryModel category = categoryDao.findOneByCode(updateNew.getCategoryCode());
 		updateNew.setCategoryId(category.getId());
@@ -78,5 +79,15 @@ public class NewServive implements INewService{
 		CategoryModel categoryModel = categoryDao.findOne(newModel.getCategoryId());
 		newModel.setCategoryCode(categoryModel.getCode());
 		return newModel;
+	}
+
+	@Override
+	public NewModel findOneAndUpdateView(long id) {
+		NewModel olNew = newDao.findOne(id);
+		olNew.setView(olNew.getView()+1);
+		CategoryModel categoryModel = categoryDao.findOne(olNew.getCategoryId());
+		olNew.setCategoryCode(categoryModel.getCode());
+		newDao.update(olNew);
+		return olNew;
 	}
 }

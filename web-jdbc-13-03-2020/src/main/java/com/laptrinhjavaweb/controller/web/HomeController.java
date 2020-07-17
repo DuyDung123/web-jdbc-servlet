@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.controller.web;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,19 +13,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.laptrinhjavaweb.model.CategoryModel;
+import com.laptrinhjavaweb.model.NewModel;
 import com.laptrinhjavaweb.model.UserModel;
+import com.laptrinhjavaweb.paging.PageRequest;
+import com.laptrinhjavaweb.paging.Pageble;
 import com.laptrinhjavaweb.service.ICategoryService;
+import com.laptrinhjavaweb.service.INewService;
 import com.laptrinhjavaweb.service.IUserService;
+import com.laptrinhjavaweb.sort.Sorter;
 import com.laptrinhjavaweb.utils.FormUtil;
 import com.laptrinhjavaweb.utils.SessionUtil;
-
-//import com.laptrinhjavaweb.model.UserModel;
 
 @WebServlet(urlPatterns  = {"/trang-chu","/dang-nhap","/dang-ky","/thoat"})
 public class HomeController extends HttpServlet{
 	
 	@Inject
 	private ICategoryService categoryService;
+	
+	@Inject
+	private INewService newService;
 	
 	@Inject
 	private IUserService userService;
@@ -54,6 +61,8 @@ public class HomeController extends HttpServlet{
 			RequestDispatcher rd = request.getRequestDispatcher("/views/register.jsp");
 			rd.forward(request, response);
 		} else {
+			Pageble pageble = new PageRequest(1, 5, new Sorter("view", "desc"));
+			request.setAttribute("mostview", newService.findAll(pageble));
 			request.setAttribute("categories", categoryService.findAll());
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);

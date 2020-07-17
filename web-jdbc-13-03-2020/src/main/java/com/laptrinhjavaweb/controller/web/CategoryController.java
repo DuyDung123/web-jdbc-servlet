@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.model.CategoryModel;
 import com.laptrinhjavaweb.model.NewModel;
+import com.laptrinhjavaweb.paging.PageRequest;
+import com.laptrinhjavaweb.paging.Pageble;
 import com.laptrinhjavaweb.service.ICategoryService;
 import com.laptrinhjavaweb.service.impl.NewServive;
+import com.laptrinhjavaweb.sort.Sorter;
 import com.laptrinhjavaweb.utils.FormUtil;
 
 @WebServlet(urlPatterns = { "/category" })
@@ -28,9 +31,6 @@ public class CategoryController extends HttpServlet {
 	@Inject
 	private NewServive newService;
 
-//	@Inject
-//	private NewModel newModel;
-
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NewModel newModel = FormUtil.toModel(NewModel.class, request);
@@ -43,11 +43,13 @@ public class CategoryController extends HttpServlet {
 			view = "views/web/category.jsp";
 		} else {
 			if (newModel.getId() != null) {
-				newModel = newService.findOne(newModel.getId());
+				newModel = newService.findOneAndUpdateView(newModel.getId());
 				request.setAttribute("categoryTabBar", categoryService.findOne(newModel.getCategoryId()));
 				view = "/views/web/new-detail.jsp";
 			}
 		}
+		Pageble pageble = new PageRequest(1, 5, new Sorter("view", "desc"));
+		request.setAttribute("mostview", newService.findAll(pageble));
 		request.setAttribute("categories", categoryService.findAll());
 		request.setAttribute(SystemConstant.MODEL, newModel);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
