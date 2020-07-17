@@ -26,6 +26,7 @@
     <link href="<c:url value='/template/web/css/contentRight.css' />" rel="stylesheet" type="text/css" media="all" />
     <link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all" />
     <link href="<c:url value='/template/web/css/category.css'/>" rel="stylesheet" type="text/css" media="all" />
+        <link href="<c:url value='/template/web/css/new-detail.css'/>" rel="stylesheet" type="text/css" media="all" />
 </head>
 
 <body>
