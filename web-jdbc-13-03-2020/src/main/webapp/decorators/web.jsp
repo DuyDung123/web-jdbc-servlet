@@ -35,7 +35,7 @@
     <c:if test="${ not empty categoryTabBar}">
         <div class="nav_bar jumbotron-fluid">
             <div class="container">
-                <span class="home">Trang chủ</span><i class="fa fa-angle-right" aria-hidden="true"></i><span>${categoryTabBar}</span>
+                <span class="home">Trang chủ</span><i class="fa fa-angle-right" aria-hidden="true"></i><span>${categoryTabBar.name}</span>
             </div>
         </div>
     </c:if>
