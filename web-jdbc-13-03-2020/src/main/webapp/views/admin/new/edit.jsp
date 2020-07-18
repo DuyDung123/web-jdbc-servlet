@@ -138,6 +138,7 @@
             	window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=insert_success";
             },
             error: function (error) {
+                alert("thêm thất bai");
             	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
             	console.log(error);
             }
@@ -151,11 +152,14 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-            	console.log(result);
-            	window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=update_success";
+                console.log(result);
+                alert("sửa thành công");
+                window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=update_success";
+                console.log(result);
             },
             error: function (error) {
-            	console.log(error);
+                console.log(error);
+                alert("sửa thất bai");
             	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
             }
         });
