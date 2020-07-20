@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.model.CategoryModel;
 import com.laptrinhjavaweb.model.NewModel;
 import com.laptrinhjavaweb.model.UserModel;
@@ -61,9 +62,12 @@ public class HomeController extends HttpServlet{
 			RequestDispatcher rd = request.getRequestDispatcher("/views/register.jsp");
 			rd.forward(request, response);
 		} else {
+			NewModel newModel = new NewModel();
+			newModel.setListResult(newService.finldAll());
 			Pageble pageble = new PageRequest(1, 5, new Sorter("view", "desc"));
 			request.setAttribute("mostview", newService.findAll(pageble));
 			request.setAttribute("categories", categoryService.findAll());
+			request.setAttribute(SystemConstant.MODEL, newModel);
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}

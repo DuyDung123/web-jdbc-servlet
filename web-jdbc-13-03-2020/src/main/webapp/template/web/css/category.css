@@ -81,3 +81,8 @@ i.fa.fa-clock-o.time {
 p.con_new_c {
     text-align: justify;
 }
+
+.c_new_c a{
+    text-decoration: none;
+    color: black;
+}
