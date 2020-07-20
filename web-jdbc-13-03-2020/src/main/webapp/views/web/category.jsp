@@ -14,7 +14,7 @@
   <div>
     <form action="<c:url value='/category'/>" id="formSubmit" method="get">
       <div class="row">
-        <img class="col-lg-6" src="<c:url value='/common/images/4.png'/>" alt="">
+        <img class="col-lg-6" src="<c:url value='${model.listResult[0].thumbnail}'/>" alt="">
         <div class="col-lg-6">
           <div class="title_banner">Công trình xanh cho nhà ở đô thị: Phải hướng đến sự phát triển bền vững</div>
           <p class="con_m_banner">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad cupiditate minus,
@@ -55,9 +55,11 @@
               <img src="<c:url value='${item.thumbnail}'/>" alt="" class="img_new_c">
             </a>
             <div class="c_new_c">
-              <div class="title_new_c">${item.title}</div>
-              <div class="time_new"><i class="fa fa-clock-o time" aria-hidden="true"></i>${item.createdDate}</div>
-              <p class="con_new_c">${item.shortDescription}</p>
+              <a class="" href='${detailURL}'>
+                <div class="title_new_c">${item.title}</div>
+                <div class="time_new"><i class="fa fa-clock-o time" aria-hidden="true"></i>${item.createdDate}</div>
+                <p class="con_new_c">${item.shortDescription}</p>
+              </a>
             </div>
           </div>
         </c:forEach>

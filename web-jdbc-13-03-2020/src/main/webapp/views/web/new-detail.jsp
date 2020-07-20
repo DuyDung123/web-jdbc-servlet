@@ -13,7 +13,7 @@
 		<div class="new_detail_content">
 			${model.content}
 		</div>
-		<div class="author"><span>Tác giả: </span> ${model.createdBy}</div>
+		<div class="author"><span>Tác giả: </span> ${model.createdBy} <span>lượt xem: ${model.view}</span></div>
 	</div>
 	<br>
 	<div class="related_posts">
