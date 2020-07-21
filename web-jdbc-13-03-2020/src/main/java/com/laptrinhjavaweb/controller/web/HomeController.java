@@ -63,7 +63,9 @@ public class HomeController extends HttpServlet{
 			rd.forward(request, response);
 		} else {
 			NewModel newModel = new NewModel();
-			newModel.setListResult(newService.finldAll());
+			CategoryModel categoryModel = new CategoryModel();
+			categoryModel.setListResult(categoryService.findAll());
+			newModel.setListResult(newService.findThreeItems(categoryModel));
 			Pageble pageble = new PageRequest(1, 5, new Sorter("view", "desc"));
 			request.setAttribute("mostview", newService.findAll(pageble));
 			request.setAttribute("categories", categoryService.findAll());

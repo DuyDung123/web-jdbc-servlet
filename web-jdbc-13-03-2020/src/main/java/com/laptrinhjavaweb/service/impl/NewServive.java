@@ -1,6 +1,7 @@
 package com.laptrinhjavaweb.service.impl;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,8 +23,18 @@ public class NewServive implements INewService{
 
 	@Override
 	public List<NewModel> findByCategoryId(Long categoryId) {
-
 		return newDao.findByCategoryId(categoryId);
+	}
+	
+	@Override
+	public List<NewModel> findThreeItems(CategoryModel categoryModel) {
+		List<NewModel> result = new ArrayList<NewModel>();
+		for(CategoryModel categoryId : categoryModel.getListResult()) { 
+			NewModel newModel= new NewModel();
+			newModel.setListResult(newDao.findThreeItems(categoryId));
+			result.addAll(newModel.getListResult());
+		}
+		return result;
 	}
 
 	@Override
@@ -88,6 +99,6 @@ public class NewServive implements INewService{
 		CategoryModel categoryModel = categoryDao.findOne(olNew.getCategoryId());
 		olNew.setCategoryCode(categoryModel.getCode());
 		newDao.update(olNew);
-		return olNew;
+		return newDao.findOne(olNew.getId());
 	}
 }
