@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.laptrinhjavaweb.dao.INewDAO;
 import com.laptrinhjavaweb.mapper.NewMapper;
+import com.laptrinhjavaweb.model.CategoryModel;
 import com.laptrinhjavaweb.model.NewModel;
 import com.laptrinhjavaweb.paging.Pageble;
 
@@ -14,6 +15,13 @@ public class NewDAO extends AbstractDAO<NewModel> implements INewDAO {
 		
 		String sql="select * from news where categoryid = ?";
 		return query(sql, new NewMapper(), categoryId);
+	}
+	
+	@Override
+	public List<NewModel> findThreeItems(CategoryModel categoryModel) {
+		StringBuilder sql = new StringBuilder("select * from news as n inner join category as c on c.id = n.categoryid");
+		sql.append(" where categoryid = ? order by n.createddate desc limit 0, 3");
+		return query(sql.toString(), new NewMapper(), categoryModel.getId());
 	}
 
 	@Override

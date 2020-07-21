@@ -33,7 +33,7 @@ public class CategoryController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NewModel newModel = FormUtil.toModel(NewModel.class, request);
+		NewModel newModel = new NewModel(); 
 		String category = request.getParameter("category");
 		String view = "";
 		if (category != null) {
@@ -42,6 +42,7 @@ public class CategoryController extends HttpServlet {
 			request.setAttribute("categoryTabBar", categoryModel);
 			view = "views/web/category.jsp";
 		} else {
+			newModel = FormUtil.toModel(NewModel.class, request);
 			if (newModel.getId() != null) {
 				newModel = newService.findOneAndUpdateView(newModel.getId());
 				request.setAttribute("categoryTabBar", categoryService.findOne(newModel.getCategoryId()));

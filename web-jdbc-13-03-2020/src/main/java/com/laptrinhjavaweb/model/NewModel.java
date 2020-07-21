@@ -9,6 +9,7 @@ public class NewModel extends AbstractModel<NewModel>{
 	private Long categoryId;
 	private Long view;
 	private String categoryCode;
+	private CategoryModel category = new CategoryModel();
 	
 	public String getTitle() {
 		return title;
@@ -66,5 +67,12 @@ public class NewModel extends AbstractModel<NewModel>{
 		this.categoryCode = categoryCode;
 	}
 
-		
+	public CategoryModel getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryModel category) {
+		this.category = category;
+	}
+	
 }
