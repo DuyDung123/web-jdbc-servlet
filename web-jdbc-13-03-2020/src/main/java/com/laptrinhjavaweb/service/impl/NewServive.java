@@ -13,11 +13,11 @@ import com.laptrinhjavaweb.model.NewModel;
 import com.laptrinhjavaweb.paging.Pageble;
 import com.laptrinhjavaweb.service.INewService;
 
-public class NewServive implements INewService{
-	
+public class NewServive implements INewService {
+
 	@Inject
 	private INewDAO newDao;
-	
+
 	@Inject
 	private ICategoryDAO categoryDao;
 
@@ -25,12 +25,12 @@ public class NewServive implements INewService{
 	public List<NewModel> findByCategoryId(Long categoryId) {
 		return newDao.findByCategoryId(categoryId);
 	}
-	
+
 	@Override
 	public List<NewModel> findThreeItems(CategoryModel categoryModel) {
 		List<NewModel> result = new ArrayList<NewModel>();
-		for(CategoryModel categoryId : categoryModel.getListResult()) { 
-			NewModel newModel= new NewModel();
+		for (CategoryModel categoryId : categoryModel.getListResult()) {
+			NewModel newModel = new NewModel();
 			newModel.setListResult(newDao.findThreeItems(categoryId));
 			result.addAll(newModel.getListResult());
 		}
@@ -61,19 +61,19 @@ public class NewServive implements INewService{
 
 	@Override
 	public void delete(Long[] ids) {
-		for (Long id: ids) {
-			//del comment trước(khóa ngoại là new_id)
-			//sau đó mới del được news
+		for (Long id : ids) {
+			// del comment trước(khóa ngoại là new_id)
+			// sau đó mới del được news
 			newDao.delete(id);
 		}
-		
+
 	}
 
 	@Override
 	public List<NewModel> findAll(Pageble pageble) {
 		return newDao.finldAll(pageble);
 	}
-	
+
 	@Override
 	public List<NewModel> finldAll() {
 		return newDao.finldAll();
@@ -95,10 +95,8 @@ public class NewServive implements INewService{
 	@Override
 	public NewModel findOneAndUpdateView(long id) {
 		NewModel olNew = newDao.findOne(id);
-		olNew.setView(olNew.getView()+1);
-		CategoryModel categoryModel = categoryDao.findOne(olNew.getCategoryId());
-		olNew.setCategoryCode(categoryModel.getCode());
-		newDao.update(olNew);
+		olNew.setView(olNew.getView() + 1);
+		newDao.findOneAndUpdateView(olNew);
 		return newDao.findOne(olNew.getId());
 	}
 }

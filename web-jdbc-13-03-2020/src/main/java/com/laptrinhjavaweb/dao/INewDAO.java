@@ -16,4 +16,5 @@ public interface INewDAO extends GenericDAO<NewModel> {
 	List<NewModel> finldAll(Pageble pageble);
 	List<NewModel> finldAll();
 	int getTotalItem();
+	void findOneAndUpdateView(NewModel updateView);
 }
