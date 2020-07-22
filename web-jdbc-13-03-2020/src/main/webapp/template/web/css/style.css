@@ -64,4 +64,14 @@ img.img_m_evn {
     border-bottom: 1px solid red;
     margin-bottom: 30px;
 }
+
+a.colorwhite{
+    text-decoration: none;
+    color: white;
+}
+
+a.colorblack{
+    text-decoration: none;
+    color: black;
+}
 /* end main-content */

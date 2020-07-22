@@ -32,8 +32,9 @@ public class CategoryController extends HttpServlet {
 	private NewServive newService;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NewModel newModel = new NewModel(); 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		NewModel newModel = new NewModel();
 		String category = request.getParameter("category");
 		String view = "";
 		if (category != null) {
@@ -51,6 +52,10 @@ public class CategoryController extends HttpServlet {
 		}
 		Pageble pageble = new PageRequest(1, 5, new Sorter("view", "desc"));
 		request.setAttribute("mostview", newService.findAll(pageble));
+		Pageble pagebleLatestPost = new PageRequest(1, 9, new Sorter("createddate", "desc"));
+		NewModel newModelLatestPost = new NewModel();
+		newModelLatestPost.setListResult(newService.findAll(pagebleLatestPost));
+		request.setAttribute("Latestpost", newModelLatestPost);
 		request.setAttribute("categories", categoryService.findAll());
 		request.setAttribute(SystemConstant.MODEL, newModel);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

@@ -44,14 +44,14 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
+                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=4&sortName=title&sortBy=desc"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS bài viết
                     </a>
                     <b class="arrow"></b>
                 </li>
                 <li>
-                    <a href='<c:url value="/admin-category?type=list&page=1&maxPageItem=2&sortName=name&sortBy=desc"/>'>
+                    <a href='<c:url value="/admin-category?type=list&page=1&maxPageItem=4&sortName=name&sortBy=desc"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS Thể loại
                     </a>

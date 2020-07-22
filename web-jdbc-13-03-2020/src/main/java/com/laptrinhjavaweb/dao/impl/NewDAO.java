@@ -79,5 +79,11 @@ public class NewDAO extends AbstractDAO<NewModel> implements INewDAO {
 		String sql ="select count(*) from news";
 		return count(sql);
 	}
+
+	@Override
+	public void findOneAndUpdateView(NewModel updateView) {
+		String sql ="UPDATE news SET view = ? WHERE id = ?";
+		update(sql, updateView.getView(), updateView.getId());
+	}
 	
 }

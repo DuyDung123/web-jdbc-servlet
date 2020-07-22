@@ -56,13 +56,28 @@ img.img_new {
 }
 
 ._1_new{
-    padding-bottom: 3%;
+    margin-bottom: 3%;
+    height: 170px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a.img_1New{
+    width: 30%;
 }
 
 img.img_new_c {
-    float: left;
-    width: 25%;
-    margin-right: 3%;
+    width: 90%;
+}
+
+div.c_new_c{
+    width: 70%;
+}
+
+a.content_1_new{
+    color: black;
+    text-decoration: none;
 }
 
 .title_new_c {

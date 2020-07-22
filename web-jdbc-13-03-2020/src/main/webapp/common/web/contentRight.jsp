@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!-- content-right -->
 <div class="side-content-light">
-	<img class="img-slide-right" src="<c:url value='/common/images/1.png'/>" alt="/images/1.png">
+	<img class="img-slide-right" src="<c:url value='${Latestpost.listResult[6].thumbnail}'/>" alt="/images/1.png">
 </div>
 <div class="con_r_b">
 	<div class="most-read">ĐỌC NHIỀU NHẤT</div>
@@ -17,6 +17,8 @@
 			<a style="text-decoration: none; color: black;" href='${detailURL}'><p class="title_c_r">${item.title}</p></a>
 		</div>
 	</c:forEach>
-	<div class="pt-4 pb-4"><img src="<c:url value='/common/images/Bannerads01.png'/>" alt="/images/1.png"></div>
-	<div class="pt-4"><img src="<c:url value='/common/images/Bannerads02.png'/>" alt="/images/1.png"></div>
+	<div class="pt-4 pb-4"><img class="" src="<c:url value='common/images/Bannerads01.png'/>" alt="/images/1.png"></div>
+	<div class="pt-4"><img src="<c:url value='common/images/Bannerads02.png'/>" alt="/images/1.png"></div>
+	<!-- <div class="pt-4 pb-4"><img class="" src="<c:url value='${Latestpost.listResult[7].thumbnail}'/>" alt="/images/1.png"></div>
+	<div class="pt-4"><img src="<c:url value='${Latestpost.listResult[8].thumbnail}'/>" alt="/images/1.png"></div> -->
 </div>

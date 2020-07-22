@@ -29,16 +29,17 @@
       <div class="col-lg-3">
         <div class="t_d_ft">TIN TỨC NỔI BẬT</div>
         <div class="ft_con_nb">
-          <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
-            nghĩnh</div>
-          <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
-            nghĩnh</div>
-          <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
-            nghĩnh</div>
-          <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
-            nghĩnh</div>
-          <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
-            nghĩnh</div>
+            <c:forEach var="item" items="${mostview}">
+                <c:url var="detailURL" value="/category">
+                  <c:param name="categoryId" value="${item.categoryId}" />
+                  <c:param name="id" value="${item.id}" />
+                </c:url>
+                <div class="mb-2"><i class="fa fa-caret-right mr-2" aria-hidden="true"></i>
+                  <a href="${detailURL}" style="text-decoration: none; color: white;" >${item.title}</a>
+                </div>
+            </c:forEach>
+          <!-- <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
+            nghĩnh</div> -->
         </div>
       </div>
       <div class="col-lg-3">
