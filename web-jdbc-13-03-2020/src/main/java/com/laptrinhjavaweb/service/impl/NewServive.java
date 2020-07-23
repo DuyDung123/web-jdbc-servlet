@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.laptrinhjavaweb.dao.ICategoryDAO;
+import com.laptrinhjavaweb.dao.ICommentDAO;
 import com.laptrinhjavaweb.dao.INewDAO;
 import com.laptrinhjavaweb.model.CategoryModel;
 import com.laptrinhjavaweb.model.NewModel;
@@ -20,6 +21,8 @@ public class NewServive implements INewService {
 
 	@Inject
 	private ICategoryDAO categoryDao;
+	
+	@Inject ICommentDAO commentDao;
 
 	@Override
 	public List<NewModel> findByCategoryId(Long categoryId) {
@@ -64,6 +67,7 @@ public class NewServive implements INewService {
 		for (Long id : ids) {
 			// del comment trước(khóa ngoại là new_id)
 			// sau đó mới del được news
+			commentDao.delete(id);
 			newDao.delete(id);
 		}
 
