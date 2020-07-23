@@ -14,31 +14,48 @@
     <div class="row ">
       <div class="col-lg-7">
         <div class="main-content-left">
-          <img class="img_m_bn" src="<c:url value='${Latestpost.listResult[0].thumbnail}'/>" alt="">
-          <div class="title_m_bn">${Latestpost.listResult[0].title}</div>
-          <p class="con_m_bn">${model.listResult[0].shortDescription}</p>
+          <a
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[0].categoryId}&id=${Latestpost.listResult[0].id}"/>'>
+            <img class="img_m_bn" src="<c:url value='${Latestpost.listResult[0].thumbnail}'/>" alt="">
+          </a>
+          <a class="colorblack"
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[0].categoryId}&id=${Latestpost.listResult[0].id}"/>'>
+            <div class="title_m_bn">${Latestpost.listResult[0].title}</div>
+            <p class="con_m_bn">${Latestpost.listResult[0].shortDescription}</p>
+          </a>
         </div>
       </div>
       <div class="col-lg-5 smail-content-right">
         <div class="main-content-right">
-          <img class="img_r_b" src="<c:url value='${Latestpost.listResult[1].thumbnail}'/>" alt=""></td>
-          <p class="title_c_r">${Latestpost.listResult[1].title}</p>
+          <a class="colorblack"
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[1].categoryId}&id=${Latestpost.listResult[1].id}"/>'>
+            <img class="img_r_b" src="<c:url value='${Latestpost.listResult[1].thumbnail}'/>" alt=""></td>
+            <p class="title_c_r">${Latestpost.listResult[1].title}</p>
+          </a>
         </div>
         <div class="main-content-right">
-          <img class="img_r_b" src="<c:url value='${Latestpost.listResult[2].thumbnail}'/>" alt=""></td>
-          <p class="title_c_r">${Latestpost.listResult[2].title}</p>
+          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[2].categoryId}&id=${Latestpost.listResult[2].id}"/>'>
+            <img class="img_r_b" src="<c:url value='${Latestpost.listResult[2].thumbnail}'/>" alt=""></td>
+            <p class="title_c_r">${Latestpost.listResult[2].title}</p>
+          </a>
         </div>
         <div class="main-content-right">
-          <img class="img_r_b" src="<c:url value='${Latestpost.listResult[3].thumbnail}'/>" alt=""></td>
-          <p class="title_c_r">${Latestpost.listResult[3].title}</p>
+          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[3].categoryId}&id=${Latestpost.listResult[3].id}"/>'>
+            <img class="img_r_b" src="<c:url value='${Latestpost.listResult[3].thumbnail}'/>" alt=""></td>
+            <p class="title_c_r">${Latestpost.listResult[3].title}</p>
+          </a>
         </div>
         <div class="main-content-right">
-          <img class="img_r_b" src="<c:url value='${Latestpost.listResult[4].thumbnail}'/>" alt=""></td>
-          <p class="title_c_r">${Latestpost.listResult[4].title}</p>
+          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[4].categoryId}&id=${Latestpost.listResult[4].id}"/>'>
+            <img class="img_r_b" src="<c:url value='${Latestpost.listResult[4].thumbnail}'/>" alt=""></td>
+            <p class="title_c_r">${Latestpost.listResult[4].title}</p>
+          </a>  
         </div>
         <div class="main-content-right">
-          <img class="img_r_b" src="<c:url value='${Latestpost.listResult[5].thumbnail}'/>" alt=""></td>
-          <p class="title_c_r">${Latestpost.listResult[5].title}</p>
+          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[5].categoryId}&id=${Latestpost.listResult[5].id}"/>'>
+            <img class="img_r_b" src="<c:url value='${Latestpost.listResult[5].thumbnail}'/>" alt=""></td>
+            <p class="title_c_r">${Latestpost.listResult[5].title}</p>
+          </a>
         </div>
         <!-- <div class="main-content-right">
           <img class="img_r_b" src="<c:url value='/common/images/6.png'/>" alt=""></td>

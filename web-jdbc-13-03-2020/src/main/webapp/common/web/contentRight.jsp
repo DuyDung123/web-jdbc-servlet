@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <!-- content-right -->
 <div class="side-content-light">
-	<img class="img-slide-right" src="<c:url value='${Latestpost.listResult[6].thumbnail}'/>" alt="/images/1.png">
+	<a href='<c:url value="/category?categoryId=${Latestpost.listResult[6].categoryId}&id=${Latestpost.listResult[6].id}"/>'>
+		<img class="img-slide-right" src="<c:url value='${Latestpost.listResult[6].thumbnail}'/>" alt="/images/1.png">
+	</a>
 </div>
 <div class="con_r_b">
 	<div class="most-read">ĐỌC NHIỀU NHẤT</div>
@@ -19,6 +21,4 @@
 	</c:forEach>
 	<div class="pt-4 pb-4"><img class="" src="<c:url value='common/images/Bannerads01.png'/>" alt="/images/1.png"></div>
 	<div class="pt-4"><img src="<c:url value='common/images/Bannerads02.png'/>" alt="/images/1.png"></div>
-	<!-- <div class="pt-4 pb-4"><img class="" src="<c:url value='${Latestpost.listResult[7].thumbnail}'/>" alt="/images/1.png"></div>
-	<div class="pt-4"><img src="<c:url value='${Latestpost.listResult[8].thumbnail}'/>" alt="/images/1.png"></div> -->
 </div>

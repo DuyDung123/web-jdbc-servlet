@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>Chỉnh sửa bài viết</title>
+	<title>${model.title}</title>
 </head>
 
 <body>

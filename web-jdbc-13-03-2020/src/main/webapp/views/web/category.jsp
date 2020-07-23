@@ -14,31 +14,43 @@
   <div>
     <form action="<c:url value='/category'/>" id="formSubmit" method="get">
       <div class="row">
-        <img class="col-lg-6" src="<c:url value='${Latestpost.listResult[1].thumbnail}'/>" alt="">
+        <a class="col-lg-6" href='<c:url value="/category?categoryId=${Latestpost.listResult[1].categoryId}&id=${Latestpost.listResult[1].id}"/>'>
+          <img class="_ert_banner" src="<c:url value='${Latestpost.listResult[1].thumbnail}'/>" alt="">
+        </a>
         <div class="col-lg-6">
-          <div class="title_banner">${Latestpost.listResult[1].title}</div>
-          <p class="con_m_banner">${model.listResult[1].shortDescription}</p>
+          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[1].categoryId}&id=${Latestpost.listResult[1].id}"/>'>
+            <div class="title_banner">${Latestpost.listResult[1].title}</div>
+            <p class="con_m_banner">${model.listResult[1].shortDescription}</p>
+          </a>  
         </div>
       </div>
       <div class="below_m_bn">
         <div class="row">
           <div class="col-lg-6 one_new_left">
-            <img class="img_new" src="<c:url value='${Latestpost.listResult[2].thumbnail}'/>" alt="">
-            <p class="title_new">${Latestpost.listResult[1].title}</p>
+            <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[2].categoryId}&id=${Latestpost.listResult[2].id}"/>'>
+              <img class="img_new" src="<c:url value='${Latestpost.listResult[2].thumbnail}'/>" alt="">
+              <p class="title_new">${Latestpost.listResult[1].title}</p>
+            </a>
           </div>
           <div class="col-lg-6 one_new-right">
-            <img class="img_new" src="<c:url value='${Latestpost.listResult[3].thumbnail}'/>" alt="">
+            <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[3].categoryId}&id=${Latestpost.listResult[3].id}"/>'>
+              <img class="img_new" src="<c:url value='${Latestpost.listResult[3].thumbnail}'/>" alt="">
             <p class="title_new">${Latestpost.listResult[3].title}</p>
+            </a>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-6 one_new_left">
-            <img class="img_new" src="<c:url value='${Latestpost.listResult[4].thumbnail}'/>" alt="">
-            <p class="title_new">${Latestpost.listResult[4].title}</p>
+            <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[4].categoryId}&id=${Latestpost.listResult[4].id}"/>'>
+              <img class="img_new" src="<c:url value='${Latestpost.listResult[4].thumbnail}'/>" alt="">
+              <p class="title_new">${Latestpost.listResult[4].title}</p>
+            </a>  
           </div>
           <div class="col-lg-6 one_new-right">
-            <img class="img_new" src="<c:url value='${Latestpost.listResult[5].thumbnail}'/>" alt="">
-            <p class="title_new">${Latestpost.listResult[5].title}</p>
+            <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[4].categoryId}&id=${Latestpost.listResult[4].id}"/>'>
+              <img class="img_new" src="<c:url value='${Latestpost.listResult[5].thumbnail}'/>" alt="">
+              <p class="title_new">${Latestpost.listResult[5].title}</p>
+            </a> 
           </div>
         </div>
       </div>
@@ -69,7 +81,7 @@
       <input type="hidden" value="" id="type" name="type" />
     </form>
   </div>
-  <script>
+  <!-- <script>
     var totalPages = ${ model.totalPage };
     var currentPage = ${ model.page };
     var limit = 4;
@@ -90,7 +102,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 </body>
 
 </html>

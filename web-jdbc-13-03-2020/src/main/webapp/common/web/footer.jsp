@@ -38,8 +38,6 @@
                   <a href="${detailURL}" style="text-decoration: none; color: white;" >${item.title}</a>
                 </div>
             </c:forEach>
-          <!-- <div class="mb-2"><i class="fa fa-caret-right" aria-hidden="true"></i> năng lương mặt trời những ý tưởng ngộ
-            nghĩnh</div> -->
         </div>
       </div>
       <div class="col-lg-3">

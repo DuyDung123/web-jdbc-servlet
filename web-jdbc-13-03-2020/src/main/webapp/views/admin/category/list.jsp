@@ -57,6 +57,7 @@
 														<th><input type="checkbox" id="checkAll"></th>
 														<th>Tên Thể loại</th>
 														<th>Code</th>
+														<th>Thao Tác</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -97,7 +98,7 @@
 		<script>
 			var totalPages = ${categories.totalPage};
 			var currentPage = ${categories.page};
-			var limit = 2;
+			var limit = 10;
 			$(function () {
 				window.pagObj = $('#pagination').twbsPagination({
 					totalPages: totalPages,

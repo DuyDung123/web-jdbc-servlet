@@ -4,7 +4,12 @@
 <c:url var ="NewURL" value="/admin-new"/>
 <html>
 <head>
-    <title>Chỉnh sửa bài viết</title>
+    <c:if test="${empty model.categoryCode}">
+        <title>Thêm bài viết</title>
+    </c:if>
+    <c:if test="${not empty model.categoryCode}">
+            <title>Chỉnh sửa bài viết</title>
+    </c:if>
 </head>
 <body>
 <div class="main-content">
@@ -18,7 +23,13 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Trang chủ</a>
                 </li>
-                <li class="active">Chỉnh sửa bài viết</li>
+                <c:if test="${empty model.categoryCode}">
+                    <li class="active">Thêm bài viết</li>
+                </c:if>
+                <c:if test="${not empty model.categoryCode}">
+                    <li class="active">Chỉnh sửa bài viết</li>
+                </c:if>
+                
             </ul><!-- /.breadcrumb -->
         </div>
         <div class="page-content">
