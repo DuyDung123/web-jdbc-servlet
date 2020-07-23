@@ -15,6 +15,10 @@
 
 /* end tab-bar */
 
+._ert_banner{
+    width: 100%;
+}
+
 p.con_m_banner {
     text-align: justify;
     font-size: 17px;
