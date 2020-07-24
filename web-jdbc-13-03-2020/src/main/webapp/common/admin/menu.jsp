@@ -57,6 +57,14 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
+                <li>
+                    <a
+                        href='<c:url value="/admin-user?type=list&page=1&maxPageItem=10&sortName=name&sortBy=desc"/>'>
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        DS Nguời dùng
+                    </a>
+                    <b class="arrow"></b>
+                </li>
             </ul>
         </li>
     </ul>
