@@ -60,7 +60,7 @@
                 </li>
                 <li>
                     <a
-                        href='<c:url value="/admin-user?type=list&page=1&maxPageItem=10&sortName=name&sortBy=desc"/>'>
+                        href='<c:url value="/admin-user?type=list&page=1&maxPageItem=4&sortName=fullname&sortBy=desc"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS Nguời dùng
                     </a>

@@ -39,4 +39,9 @@ public class UserService implements IUserService{
 		return userDAO.findAll(pageble);
 	}
 
+	@Override
+	public int getTotalItem() {
+		return userDAO.getTotalItem();
+	}
+
 }

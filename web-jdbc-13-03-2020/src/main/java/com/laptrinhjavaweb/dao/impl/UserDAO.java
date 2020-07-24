@@ -35,7 +35,7 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO{
 
 	@Override
 	public List<UserModel> findAll(Pageble pageble) {
-		StringBuilder sql = new StringBuilder("select * from user");
+		StringBuilder sql = new StringBuilder("select * from user as u inner join role as r on r.id = u.roleid");
 		if(pageble.getSorter() != null) {
 			sql.append(" order by "+pageble.getSorter().getSortName()+" "+pageble.getSorter().getSortBy());
 		}
@@ -43,6 +43,12 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO{
 			sql.append(" LIMIT "+pageble.getOffset()+","+pageble.getLimit());
 		}
 		return query(sql.toString(), new UserMapper());
+	}
+
+	@Override
+	public int getTotalItem() {
+		String sql = "select count(*) from user";
+		return count(sql);
 	}
 
 }
