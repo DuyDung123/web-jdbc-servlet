@@ -1,6 +1,7 @@
 package com.laptrinhjavaweb.service.impl;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -8,6 +9,7 @@ import com.laptrinhjavaweb.dao.IRoleDAO;
 import com.laptrinhjavaweb.dao.IUserDAO;
 import com.laptrinhjavaweb.model.RoleModel;
 import com.laptrinhjavaweb.model.UserModel;
+import com.laptrinhjavaweb.paging.Pageble;
 import com.laptrinhjavaweb.service.IUserService;
 
 public class UserService implements IUserService{
@@ -30,6 +32,11 @@ public class UserService implements IUserService{
 		userModel.setRoleId(roleModel.getId());
 		Long newId = userDAO.save(userModel);
 		return userDAO.findOne(newId);
+	}
+
+	@Override
+	public List<UserModel> findAll(Pageble pageble) {
+		return userDAO.findAll(pageble);
 	}
 
 }
