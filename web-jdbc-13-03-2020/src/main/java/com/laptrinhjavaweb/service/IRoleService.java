@@ -1,10 +1,10 @@
-package com.laptrinhjavaweb.dao;
+package com.laptrinhjavaweb.service;
 
 import java.util.List;
 
 import com.laptrinhjavaweb.model.RoleModel;
 
-public interface IRoleDAO {
-	RoleModel findOneByCode(String code);
+public interface IRoleService {
+	
 	List<RoleModel> findAll();
 }

@@ -44,4 +44,9 @@ public class UserService implements IUserService{
 		return userDAO.getTotalItem();
 	}
 
+	@Override
+	public UserModel findOne(Long id) {
+		return userDAO.findOne(id);
+	}
+
 }

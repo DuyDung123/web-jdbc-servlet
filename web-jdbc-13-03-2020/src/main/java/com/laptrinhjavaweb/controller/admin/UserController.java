@@ -14,7 +14,9 @@ import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.model.UserModel;
 import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.paging.Pageble;
+import com.laptrinhjavaweb.service.IRoleService;
 import com.laptrinhjavaweb.service.IUserService;
+import com.laptrinhjavaweb.service.impl.RoleService;
 import com.laptrinhjavaweb.sort.Sorter;
 import com.laptrinhjavaweb.utils.FormUtil;
 
@@ -25,6 +27,9 @@ public class UserController extends HttpServlet {
 	
 	@Inject
 	IUserService userService;
+	
+	@Inject
+	IRoleService roleService;
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +42,12 @@ public class UserController extends HttpServlet {
 			userModel.setListResult(userService.findAll(pageble));
 			userModel.setTotalPage((int) Math.ceil((double) userModel.getTotalItem() / userModel.getMaxPageItem()));
 			view = "/views/admin/user/list.jsp";
+		}else if(userModel.getType().equals(SystemConstant.EDIT)) {
+			if(userModel.getId() != null) {
+				userModel = userService.findOne(userModel.getId());
+				request.setAttribute("role", roleService.findAll());
+			}
+			view = "/views/admin/user/edit.jsp";
 		}
 		request.setAttribute(SystemConstant.MODEL, userModel);
 		RequestDispatcher rd = request.getRequestDispatcher(view);
