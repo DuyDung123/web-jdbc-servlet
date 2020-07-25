@@ -10,4 +10,5 @@ public interface IUserService {
 	UserModel save(UserModel userModel);
 	List<UserModel> findAll(Pageble pageble);
 	int getTotalItem();
+	UserModel findOne(Long id);
 }

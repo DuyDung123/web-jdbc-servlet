@@ -5,10 +5,10 @@
 <html>
 <head>
     <c:if test="${empty model.categoryCode}">
-        <title>Thêm bài viết</title>
+        <title>add User</title>
     </c:if>
     <c:if test="${not empty model.categoryCode}">
-            <title>Chỉnh sửa bài viết</title>
+            <title>edit info user</title>
     </c:if>
 </head>
 <body>
@@ -24,10 +24,10 @@
                     <a href="#">Trang chủ</a>
                 </li>
                 <c:if test="${empty model.categoryCode}">
-                    <li class="active">Thêm bài viết</li>
+                    <li class="active">add User</li>
                 </c:if>
                 <c:if test="${not empty model.categoryCode}">
-                    <li class="active">Chỉnh sửa bài viết</li>
+                    <li class="active">edit info user</li>
                 </c:if>
                 
             </ul><!-- /.breadcrumb -->
@@ -45,17 +45,17 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right">Thể loại</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="categoryCode" name="categoryCode">
-                                        <c:if test="${empty model.categoryCode}">
-                                            <option value="">Chọn loại bài viết</option>
-                                            <c:forEach var="item" items="${categories}">
-                                                <option value="${item.code}">${item.name}</option>
+                                    <select class="form-control" id="roleId" name="roleId">
+                                        <c:if test="${empty model.roleId}">
+                                            <option value="">select authorization</option>
+                                            <c:forEach var="item" items="${role}">
+                                                <option value="${item.id}">${item.name}</option>
                                             </c:forEach>
                                         </c:if>
-                                        <c:if test="${not empty model.categoryCode}">
-                                            <option value="">Chọn loại bài viết</option>
-                                            <c:forEach var="item" items="${categories}">
-                                                <option value="${item.code}" <c:if test="${item.code == model.categoryCode}">selected="selected"</c:if>>
+                                        <c:if test="${not empty model.roleId}">
+                                            <option value="">select authorization</option>
+                                            <c:forEach var="item" items="${role}">
+                                                <option value="${item.id}" <c:if test="${item.id == model.roleId}">selected="selected"</c:if>>
                                                         ${item.name}
                                                 </option>
                                             </c:forEach>
@@ -66,33 +66,34 @@
                             <br/>
                             <br/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Tiêu đề</label>
+                                <label class="col-sm-3 control-label no-padding-right">userName</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="title" name="title" value="${model.title}"/>
+                                    <input type="text" class="form-control" id="title" name="title" value="${model.userName}"/>
                                 </div>
                             </div>
                             <br/>
                             <br/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Hình đại diện</label>
+                                <label class="col-sm-3 control-label no-padding-right">password</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="thumbnail" name="thumbnail" value="${model.thumbnail}"/>
+                                    <input type="text" class="form-control" id="thumbnail" name="thumbnail" value="${model.password}"/>
                                 </div>
                             </div>
                             <br/>
                             <br/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Mô tả ngắn</label>
+                                <label class="col-sm-3 control-label no-padding-right">fullname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="shortDescription" name="shortDescription" value="${model.shortDescription}"/>
+                                    <input type="text" class="form-control" id="shortDescription" name="shortDescription" value="${model.fullName}"/>
                                 </div>
                             </div>
                             <br/>
                             <br/>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Nội dung</label>
-                                <div class="col-sm-9">                                 
-                                    <textarea rows="" cols="" id="content" name="content" style="width: 820px;height: 175px">${model.content}</textarea>
+                                <label class="col-sm-3 control-label no-padding-right">status</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="shortDescription" name="shortDescription"
+                                        value="${model.status}" />
                                 </div>
                             </div>
                             <br/>
@@ -100,10 +101,10 @@
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <c:if test="${not empty model.id}">
-                                        <input type="button" class="btn btn-white btn-warning btn-bold" value="Cập nhật bài viết" id="btnAddOrUpdateNew"/>
+                                        <input type="button" class="btn btn-white btn-warning btn-bold" value="update info user" id="btnAddOrUpdateNew"/>
                                     </c:if>
                                     <c:if test="${empty model.id}">
-                                        <input type="button" class="btn btn-white btn-warning btn-bold" value="Thêm bài viết" id="btnAddOrUpdateNew"/>
+                                        <input type="button" class="btn btn-white btn-warning btn-bold" value="add User" id="btnAddOrUpdateNew"/>
                                     </c:if>
                                 </div>
                             </div>
@@ -116,10 +117,10 @@
 </div>
 <script>
 	
-	var editor = '';
-	$(document).ready(function(){
-		editor = CKEDITOR.replace( 'content');
-	});
+	// var editor = '';
+	// $(document).ready(function(){
+	// 	editor = CKEDITOR.replace( 'content');
+	// });
 	
     $('#btnAddOrUpdateNew').click(function (e) {
         e.preventDefault();

@@ -38,7 +38,7 @@
 											<div class="dt-buttons btn-overlap btn-group">
 												<a flag="info"
 												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
-												   title='Thêm người dùng' href='<c:url value="/admin-new?type=edit"/>'>
+												   title='Thêm người dùng' href='<c:url value="/admin-user?type=edit"/>'>
 															<span>
 																<i class="fa fa-plus-circle bigger-110 purple"></i>
 															</span>	
@@ -64,8 +64,8 @@
 														<th>password</th>
 														<th>fullname</th>
 														<th>status</th>
-														<th>Quyền</th>
-														<th>Thao tác</th>
+														<th>authorization</th>
+														<th>Manipulation</th>
 													</tr>
 												</thead>
 												<tbody>
