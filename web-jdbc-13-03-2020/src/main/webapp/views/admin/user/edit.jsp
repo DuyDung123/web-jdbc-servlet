@@ -4,10 +4,10 @@
 <c:url var ="NewURL" value="/admin-new"/>
 <html>
 <head>
-    <c:if test="${empty model.categoryCode}">
+    <c:if test="${empty model.id}">
         <title>add User</title>
     </c:if>
-    <c:if test="${not empty model.categoryCode}">
+    <c:if test="${not empty model.id}">
             <title>edit info user</title>
     </c:if>
 </head>
@@ -23,10 +23,10 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Trang chủ</a>
                 </li>
-                <c:if test="${empty model.categoryCode}">
+                <c:if test="${empty model.id}">
                     <li class="active">add User</li>
                 </c:if>
-                <c:if test="${not empty model.categoryCode}">
+                <c:if test="${not empty model.id}">
                     <li class="active">edit info user</li>
                 </c:if>
                 
@@ -43,7 +43,7 @@
 						</c:if>
                         <form id="formSubmit">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Thể loại</label>
+                                <label class="col-sm-3 control-label no-padding-right">authorization</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" id="roleId" name="roleId">
                                         <c:if test="${empty model.roleId}">
