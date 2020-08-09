@@ -1,0 +1,47 @@
+img.new_detail_img {
+    width: 92%;
+}
+
+.new_detail_content {
+    margin-top: 7%;
+    width: 92%
+}
+
+.new_detail_content p {
+    text-align: justify;
+}
+
+.new_detail_content p img{
+    width: 100%
+}
+
+.author{
+    float: right;
+    margin-right: 8%;
+}
+
+.related_posts {
+    margin-top: 5%;
+}
+
+.one_new_rp{
+    float: left;
+}
+
+.baivietliequan {
+    width: 757px;
+}
+
+.one_new_rp {
+    float: left;
+    width: 252px;
+}
+
+img.img_rp {
+    width: 243px;
+}
+
+p.title_rp {
+    font-weight: bold;
+    margin-top: 6%;
+}
