@@ -33,7 +33,7 @@ public class AuthorizationFilter implements Filter {
 	        HttpServletRequest request = (HttpServletRequest) servletRequest;
 	        HttpServletResponse response = (HttpServletResponse) servletResponse;
 	        String url = request.getRequestURI();
-	        if (url.startsWith("/admin")) {
+	        if (url.startsWith("/web-jdbc-13-03-2020/admin")) {
 	        	// nếu phải là url trang admin thì phải kiểm tra xem đã đang nhập chưa
 	            UserModel model = (UserModel) SessionUtil.getInstance().getValue(request,"USERMODEL");
 	            if (model != null) {
