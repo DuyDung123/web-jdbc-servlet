@@ -20,7 +20,7 @@
         <div class="col-lg-6">
           <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[1].categoryId}&id=${Latestpost.listResult[1].id}"/>'>
             <div class="title_banner">${Latestpost.listResult[1].title}</div>
-            <p class="con_m_banner">${model.listResult[1].shortDescription}</p>
+            <p class="con_m_banner">${Latestpost.listResult[1].shortDescription}</p>
           </a>  
         </div>
       </div>

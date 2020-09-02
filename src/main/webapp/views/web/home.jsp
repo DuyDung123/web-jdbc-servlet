@@ -34,25 +34,29 @@
           </a>
         </div>
         <div class="main-content-right">
-          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[2].categoryId}&id=${Latestpost.listResult[2].id}"/>'>
+          <a class="colorblack"
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[2].categoryId}&id=${Latestpost.listResult[2].id}"/>'>
             <img class="img_r_b" src="<c:url value='${Latestpost.listResult[2].thumbnail}'/>" alt=""></td>
             <p class="title_c_r">${Latestpost.listResult[2].title}</p>
           </a>
         </div>
         <div class="main-content-right">
-          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[3].categoryId}&id=${Latestpost.listResult[3].id}"/>'>
+          <a class="colorblack"
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[3].categoryId}&id=${Latestpost.listResult[3].id}"/>'>
             <img class="img_r_b" src="<c:url value='${Latestpost.listResult[3].thumbnail}'/>" alt=""></td>
             <p class="title_c_r">${Latestpost.listResult[3].title}</p>
           </a>
         </div>
         <div class="main-content-right">
-          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[4].categoryId}&id=${Latestpost.listResult[4].id}"/>'>
+          <a class="colorblack"
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[4].categoryId}&id=${Latestpost.listResult[4].id}"/>'>
             <img class="img_r_b" src="<c:url value='${Latestpost.listResult[4].thumbnail}'/>" alt=""></td>
             <p class="title_c_r">${Latestpost.listResult[4].title}</p>
-          </a>  
+          </a>
         </div>
         <div class="main-content-right">
-          <a class="colorblack" href='<c:url value="/category?categoryId=${Latestpost.listResult[5].categoryId}&id=${Latestpost.listResult[5].id}"/>'>
+          <a class="colorblack"
+            href='<c:url value="/category?categoryId=${Latestpost.listResult[5].categoryId}&id=${Latestpost.listResult[5].id}"/>'>
             <img class="img_r_b" src="<c:url value='${Latestpost.listResult[5].thumbnail}'/>" alt=""></td>
             <p class="title_c_r">${Latestpost.listResult[5].title}</p>
           </a>
@@ -66,12 +70,16 @@
   </div>
   <c:forEach var="item" items="${categories}" varStatus="loop">
     <section class="main-content-event">
-      <div class="title-event">
-        <a class="colorwhite" href='<c:url value="/category?category=${item.code}"/>'>
-          <p class="text_event">${model.listResult[loop.index*3].category.name}</p>
-        </a>
-        <hr>
-      </div>
+      <c:forEach var="itemts" items="${categories}">
+        <c:if test="${itemts.name == model.listResult[loop.index*3].category.name}">
+          <div class="title-event">
+            <a class="colorwhite" href='<c:url value="/category?category=${item.code}"/>'>
+              <p class="text_event">${model.listResult[loop.index*3].category.name}</p>
+            </a>
+            <hr>
+          </div>
+        </c:if>
+      </c:forEach>
       <div class="row ">
         <div class="col-lg-7">
           <div class="main-content-event">
