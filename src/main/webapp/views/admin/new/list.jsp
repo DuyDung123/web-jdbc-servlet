@@ -49,6 +49,13 @@
 																	<i class="fa fa-trash-o bigger-110 pink"></i>
 																</span>
 												</button>
+												<a flag="info"
+												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
+												   title='upload file' href='<c:url value="/admin-new?type=uploadfile"/>'>
+															<span>
+																<i class="fa fa-plus-circle bigger-110 purple"></i>
+															</span>	
+												</a>
 											</div>
 										</div>
 									</div>
