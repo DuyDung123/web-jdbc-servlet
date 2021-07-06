@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,6 +47,8 @@ public class NewController extends HttpServlet {
 			}
 			request.setAttribute("categories", categoryService.findAll());
 			view = "/views/admin/new/edit.jsp";
+		}else if(model.getType().equals(SystemConstant.UPLOADFILE)) {
+			view = "/views/admin/new/uploadFile.jsp";
 		}
 		request.setAttribute(SystemConstant.MODEL, model);
 		RequestDispatcher rd = request.getRequestDispatcher(view);
