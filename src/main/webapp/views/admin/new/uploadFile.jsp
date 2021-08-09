@@ -23,6 +23,11 @@
     						<input type="file" name="file" multiple="multiple"/>
     						<input type="submit" value="Upload" />
   						</form>
+  						
+  						<br>
+  						<br>
+  						<br>
+  						<a href="<c:url value='/admin-new/UploadFileServlet'/>">ghi file docx</a> 
                 </div>
             </div>
         </div>
