@@ -2,10 +2,14 @@ package com.laptrinhjavaweb.controller.admin;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -19,6 +23,14 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.poi.xwpf.usermodel.BreakType;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
+
+import com.fasterxml.jackson.databind.deser.std.DateDeserializers.DateDeserializer;
+import com.laptrinhjavaweb.model.NewModel;
+import com.laptrinhjavaweb.service.INewService;
 
 @WebServlet(name = "FileUploadServlet", urlPatterns = { "/admin-new/UploadFileServlet" })
 @MultipartConfig(
@@ -32,6 +44,41 @@ public class UploadFileController extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
+	@Inject private INewService newServive;
+	
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		ServletContext servletContext = getServletContext();
+		String contextPath = servletContext.getRealPath(File.separator);
+		
+		String path = contextPath +"\\common\\file\\";
+		String fileName = "demo-apache-apoi-word";
+		
+		NewModel newModel = newServive.findOne(35);
+		WriteFileDocx writeFileDocx = new WriteFileDocx();
+		
+		writeFileDocx.writeLineText(newModel.getTitle());
+		writeFileDocx.writeLineText(newModel.getCategoryCode());
+		writeFileDocx.writeLineText(newModel.getThumbnail());
+		writeFileDocx.writeLineText(newModel.getShortDescription());
+		writeFileDocx.writeLineText(newModel.getContent());
+			
+		
+		
+//		writeFileDocx.writeLineText("Paragraph 1: stackjava.com");
+//		writeFileDocx.writeLineText("Paragraph 2: demo read/write file MS-Word");
+		writeFileDocx.addPage();
+		writeFileDocx.writeLineText("ssssssssssssssss");
+		writeFileDocx.writeFile(path,fileName);
+		String result = writeFileDocx.close();
+		response.getWriter().println(result);
+		response.getWriter().println(getBaseUrl(request)+"\\common\\file\\"+fileName+".docx");
+	}
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -76,6 +123,57 @@ public class UploadFileController extends HttpServlet {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	
+	private class WriteFileDocx{
+		
+		XWPFDocument document = null;
+		FileOutputStream out = null;
+		 
+		public WriteFileDocx() {
+			document = new XWPFDocument(); 
+		}
+		
+		public void writeLineText(String text) {
+			XWPFParagraph paragraph1 = document.createParagraph();
+			XWPFRun run = paragraph1.createRun();
+		    run.setText(text);
+		}
+		
+		public void writeFile(String path, String namefile){
+			try {
+				out = new FileOutputStream(new File(path + namefile + ".docx"));
+				document.write(out);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void fontText() {
+			XWPFParagraph paragraph1 = document.createParagraph();
+			XWPFRun run = paragraph1.createRun();
+		    run.setFontFamily("Times New Roman");
+		}
+		
+		public void addPage() {
+			XWPFParagraph paragraph1 = document.createParagraph();
+			XWPFRun run = paragraph1.createRun();
+		    run.addBreak(BreakType.PAGE);
+		}
+		
+		public String close() {
+			try {
+				out.close();
+			    document.close();
+			    return "successully";
+			} catch (IOException e) {
+				e.printStackTrace();
+				return "fail";
+			}
 		}
 	}
 
